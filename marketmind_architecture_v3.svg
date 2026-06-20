@@ -1,0 +1,762 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 2340" width="1260" height="2340"
+     font-family="'Segoe UI', Arial, sans-serif">
+
+  <!-- ═══════════════════════════════════════════════════════
+       DEFS — gradients, filters, markers
+  ═══════════════════════════════════════════════════════ -->
+  <defs>
+    <!-- Shadows -->
+    <filter id="shadow" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="2" dy="3" stdDeviation="4" flood-color="#00000020"/>
+    </filter>
+    <filter id="shadow-sm" x="-4%" y="-4%" width="108%" height="108%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#00000018"/>
+    </filter>
+
+    <!-- Gradients -->
+    <linearGradient id="g-purple" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#5B21B6"/>
+    </linearGradient>
+    <linearGradient id="g-lavender" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#EDE9FE"/>
+      <stop offset="100%" stop-color="#DDD6FE"/>
+    </linearGradient>
+    <linearGradient id="g-pink" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#FDF2F8"/>
+      <stop offset="100%" stop-color="#FCE7F3"/>
+    </linearGradient>
+    <linearGradient id="g-blue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#EFF6FF"/>
+      <stop offset="100%" stop-color="#DBEAFE"/>
+    </linearGradient>
+    <linearGradient id="g-green" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#F0FDF4"/>
+      <stop offset="100%" stop-color="#DCFCE7"/>
+    </linearGradient>
+    <linearGradient id="g-amber" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#FFFBEB"/>
+      <stop offset="100%" stop-color="#FEF3C7"/>
+    </linearGradient>
+    <linearGradient id="g-slate" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#F1F5F9"/>
+    </linearGradient>
+    <linearGradient id="g-teal" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#F0FDFA"/>
+      <stop offset="100%" stop-color="#CCFBF1"/>
+    </linearGradient>
+    <linearGradient id="g-ls-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#7C3AED" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.01"/>
+    </linearGradient>
+
+    <!-- Arrow markers -->
+    <marker id="arr"      markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0,9 3.5,0 7" fill="#6B7280"/>
+    </marker>
+    <marker id="arr-purple" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0,9 3.5,0 7" fill="#7C3AED"/>
+    </marker>
+    <marker id="arr-blue" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0,9 3.5,0 7" fill="#2563EB"/>
+    </marker>
+    <marker id="arr-green" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0,9 3.5,0 7" fill="#16A34A"/>
+    </marker>
+    <marker id="arr-red" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0,9 3.5,0 7" fill="#DC2626"/>
+    </marker>
+    <marker id="arr-amber" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0,9 3.5,0 7" fill="#D97706"/>
+    </marker>
+  </defs>
+
+  <!-- ── PAGE BACKGROUND ───────────────────────────────────── -->
+  <rect width="1260" height="2340" fill="#F8FAFC"/>
+
+  <!-- ══════════════════════════════════════════════════════════
+       LANGSMITH OUTER BOUNDARY
+  ══════════════════════════════════════════════════════════ -->
+  <rect x="12" y="12" width="1236" height="2316" rx="20"
+        fill="url(#g-ls-bg)" stroke="#7C3AED" stroke-width="2"
+        stroke-dasharray="10,5"/>
+  <!-- Header band -->
+  <rect x="12" y="12" width="1236" height="52" rx="20" fill="#7C3AED" opacity="0.12"/>
+  <rect x="12" y="44" width="1236" height="20" fill="#7C3AED" opacity="0.12"/>
+  <text x="630" y="43" text-anchor="middle" font-size="13.5" font-weight="700"
+        fill="#5B21B6" letter-spacing="0.4">
+    🔭  LANGSMITH / LANGCHAIN TRACING V2  —  LANGCHAIN_TRACING_V2=true
+    |  Automatic span on every self.llm.invoke() call
+  </text>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION: app.py — _get_clients()
+  ══════════════════════════════════════════════════════════ -->
+  <!-- Container -->
+  <rect x="32" y="78" width="1196" height="178" rx="14"
+        fill="url(#g-slate)" stroke="#C5B4EC" stroke-width="2" filter="url(#shadow-sm)"/>
+  <rect x="32" y="78" width="1196" height="32" rx="14" fill="#7C3AED" opacity="0.15"/>
+  <rect x="32" y="96" width="1196" height="14" fill="#7C3AED" opacity="0.15"/>
+  <text x="630" y="99" text-anchor="middle" font-size="12" font-weight="800"
+        fill="#5B21B6" letter-spacing="0.5">
+    📦  app.py — _get_clients()  @st.cache_resource  |  Created ONCE per session, returns (openai_client, tavily_client, llm)
+  </text>
+
+  <!-- Node: OpenAI SDK Client -->
+  <rect x="52" y="118" width="240" height="124" rx="10"
+        fill="url(#g-amber)" stroke="#D97706" stroke-width="1.8" filter="url(#shadow-sm)"/>
+  <rect x="52" y="118" width="240" height="26" rx="10" fill="#D97706" opacity="0.25"/>
+  <rect x="52" y="132" width="240" height="12" fill="#D97706" opacity="0.25"/>
+  <text x="172" y="134" text-anchor="middle" font-size="11" font-weight="800" fill="#78350F">🔑 OpenAI SDK Client — openai_client</text>
+  <text x="172" y="153" text-anchor="middle" font-size="10.5" fill="#92400E">Embeddings ONLY</text>
+  <text x="172" y="168" text-anchor="middle" font-size="10.5" fill="#92400E">text-embedding-3-small</text>
+  <text x="172" y="183" text-anchor="middle" font-size="10" fill="#B45309">NOT routed via LangChain</text>
+  <text x="172" y="198" text-anchor="middle" font-size="10" fill="#B45309">Raw SDK — not LangSmith-traced</text>
+  <text x="172" y="213" text-anchor="middle" font-size="10" fill="#B45309">Retained for ChromaDB vectors</text>
+  <text x="172" y="228" text-anchor="middle" font-size="10" fill="#B45309">in all 4 agents</text>
+
+  <!-- Node: Tavily Client -->
+  <rect x="320" y="118" width="220" height="124" rx="10"
+        fill="url(#g-blue)" stroke="#2563EB" stroke-width="1.8" filter="url(#shadow-sm)"/>
+  <rect x="320" y="118" width="220" height="26" rx="10" fill="#2563EB" opacity="0.20"/>
+  <rect x="320" y="132" width="220" height="12" fill="#2563EB" opacity="0.20"/>
+  <text x="430" y="134" text-anchor="middle" font-size="11" font-weight="800" fill="#1E3A8A">🌐 Tavily Client — tavily_client</text>
+  <text x="430" y="153" text-anchor="middle" font-size="10.5" fill="#1E40AF">KSA Market Search API</text>
+  <text x="430" y="168" text-anchor="middle" font-size="10.5" fill="#1E40AF">search_depth=advanced</text>
+  <text x="430" y="183" text-anchor="middle" font-size="10" fill="#3B82F6">max_results=5 per query</text>
+  <text x="430" y="198" text-anchor="middle" font-size="10" fill="#3B82F6">250-char query boundary</text>
+  <text x="430" y="213" text-anchor="middle" font-size="10" fill="#3B82F6">Direct HTTP — not traced</text>
+
+  <!-- Node: ChatOpenAI SHARED -->
+  <rect x="568" y="112" width="304" height="136" rx="10"
+        fill="url(#g-pink)" stroke="#C4608A" stroke-width="2.5" filter="url(#shadow)"/>
+  <rect x="568" y="112" width="304" height="28" rx="10" fill="#E5A4CB" opacity="0.6"/>
+  <rect x="568" y="128" width="304" height="12" fill="#E5A4CB" opacity="0.6"/>
+  <text x="720" y="130" text-anchor="middle" font-size="12" font-weight="800" fill="#831843">🤖 ChatOpenAI — SHARED INSTANCE (llm)</text>
+  <text x="720" y="151" text-anchor="middle" font-size="11" font-weight="700" fill="#9D174D">llm = ChatOpenAI(</text>
+  <text x="720" y="167" text-anchor="middle" font-size="10.5" fill="#9D174D">  model="gpt-4o-mini",  temperature=0.4,</text>
+  <text x="720" y="182" text-anchor="middle" font-size="10.5" fill="#9D174D">  api_key=openai_key  )</text>
+  <text x="720" y="200" text-anchor="middle" font-size="10.5" fill="#BE185D">Created ONCE → @st.cache_resource → injected</text>
+  <text x="720" y="215" text-anchor="middle" font-size="10.5" fill="#BE185D">into all 4 agents via llm=llm keyword arg</text>
+  <text x="720" y="230" text-anchor="middle" font-size="10" font-weight="700" fill="#C4608A">Every .invoke() auto-traces to LangSmith ↗</text>
+
+  <!-- Node: LangSmith project -->
+  <rect x="906" y="118" width="298" height="124" rx="10"
+        fill="url(#g-lavender)" stroke="#7C3AED" stroke-width="2" filter="url(#shadow-sm)"/>
+  <rect x="906" y="118" width="298" height="26" rx="10" fill="#7C3AED" opacity="0.25"/>
+  <rect x="906" y="132" width="298" height="12" fill="#7C3AED" opacity="0.25"/>
+  <text x="1055" y="134" text-anchor="middle" font-size="11" font-weight="800" fill="#4C1D95">📊 LangSmith — MarketMindAI_Track</text>
+  <text x="1055" y="153" text-anchor="middle" font-size="10.5" fill="#5B21B6">Run tree per pipeline execution:</text>
+  <text x="1055" y="168" text-anchor="middle" font-size="10" fill="#6D28D9">├── Stage1_BuildSearchQueries</text>
+  <text x="1055" y="182" text-anchor="middle" font-size="10" fill="#6D28D9">├── Stage1_SynthesiseReport</text>
+  <text x="1055" y="196" text-anchor="middle" font-size="10" fill="#6D28D9">├── Stage2_StrategyAgent</text>
+  <text x="1055" y="210" text-anchor="middle" font-size="10" fill="#6D28D9">├── Stage3 (Draft · Critique · Refine)</text>
+  <text x="1055" y="224" text-anchor="middle" font-size="10" fill="#6D28D9">└── Stage4_BrandAlignmentAgent</text>
+
+  <!-- Arrow: LLM → LangSmith -->
+  <line x1="872" y1="177" x2="903" y2="177" stroke="#7C3AED" stroke-width="1.8"
+        stroke-dasharray="5,3" marker-end="url(#arr-purple)"/>
+  <text x="887" y="170" text-anchor="middle" font-size="9" fill="#7C3AED" font-style="italic">auto-trace</text>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION: INPUT + VALIDATION
+  ══════════════════════════════════════════════════════════ -->
+  <rect x="32" y="276" width="560" height="114" rx="14"
+        fill="url(#g-slate)" stroke="#C5B4EC" stroke-width="1.8" filter="url(#shadow-sm)"/>
+  <rect x="32" y="276" width="560" height="28" rx="14" fill="#C5B4EC" opacity="0.3"/>
+  <rect x="32" y="292" width="560" height="12" fill="#C5B4EC" opacity="0.3"/>
+  <text x="312" y="295" text-anchor="middle" font-size="11.5" font-weight="800" fill="#4C1D95">
+    📥  Input &amp; Validation Layer
+  </text>
+  <!-- UI node -->
+  <rect x="50" y="314" width="230" height="64" rx="8"
+        fill="#fff" stroke="#9D84D9" stroke-width="1.5"/>
+  <text x="165" y="334" text-anchor="middle" font-size="11" font-weight="700" fill="#5B21B6">🖥️ Streamlit UI</text>
+  <text x="165" y="350" text-anchor="middle" font-size="10" fill="#6D28D9">Company Profile · Brand Voice</text>
+  <text x="165" y="364" text-anchor="middle" font-size="10" fill="#6D28D9">Budget · PDF Upload · HITL Gate</text>
+  <!-- Security node -->
+  <rect x="302" y="314" width="274" height="64" rx="8"
+        fill="#FFF7ED" stroke="#D97706" stroke-width="1.5"/>
+  <text x="439" y="334" text-anchor="middle" font-size="11" font-weight="700" fill="#78350F">🛡️ utils/security.py</text>
+  <text x="439" y="350" text-anchor="middle" font-size="10" fill="#92400E">15 injection-pattern regexes · 4000-char limit</text>
+  <text x="439" y="364" text-anchor="middle" font-size="10" fill="#92400E">sanitize_for_query() · 250-char Tavily slice</text>
+  <!-- Arrow: UI → SEC -->
+  <line x1="280" y1="346" x2="299" y2="346" stroke="#6B7280" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- Arrow: Input → Stage 1 -->
+  <line x1="312" y1="390" x2="312" y2="432"
+        stroke="#6B7280" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="328" y="416" text-anchor="start" font-size="10" fill="#6B7280">Validated profile + budget</text>
+
+  <!-- ══════════════════════════════════════════════════════════
+       CHROMADB — LEFT PANEL (spans stages 1-4)
+  ══════════════════════════════════════════════════════════ -->
+  <rect x="952" y="276" width="276" height="1394" rx="14"
+        fill="url(#g-blue)" stroke="#2563EB" stroke-width="2" filter="url(#shadow)"/>
+  <!-- Cylinder cap -->
+  <ellipse cx="1090" cy="290" rx="138" ry="20" fill="#BFDBFE" stroke="#2563EB" stroke-width="2"/>
+  <text x="1090" y="318" text-anchor="middle" font-size="13.5" font-weight="800" fill="#1E3A8A">🗄️ ChromaDB</text>
+  <text x="1090" y="337" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1D4ED8">Persistent Vector Store</text>
+  <line x1="966" y1="350" x2="1214" y2="350" stroke="#93C5FD" stroke-width="1.2"/>
+
+  <!-- Collections -->
+  <text x="978" y="372" font-size="11" font-weight="700" fill="#1E3A8A">Collections:</text>
+  <rect x="974" y="380" width="246" height="24" rx="5" fill="#DBEAFE" stroke="#93C5FD" stroke-width="1"/>
+  <text x="1097" y="396" text-anchor="middle" font-size="10.5" fill="#1E40AF">market_research</text>
+  <rect x="974" y="408" width="246" height="24" rx="5" fill="#DBEAFE" stroke="#93C5FD" stroke-width="1"/>
+  <text x="1097" y="424" text-anchor="middle" font-size="10.5" fill="#1E40AF">icp_and_strategy</text>
+  <rect x="974" y="436" width="246" height="24" rx="5" fill="#DBEAFE" stroke="#93C5FD" stroke-width="1"/>
+  <text x="1097" y="452" text-anchor="middle" font-size="10.5" fill="#1E40AF">marketing_strategies</text>
+  <rect x="974" y="464" width="246" height="24" rx="5" fill="#DBEAFE" stroke="#93C5FD" stroke-width="1"/>
+  <text x="1097" y="480" text-anchor="middle" font-size="10.5" fill="#1E40AF">brand_alignment</text>
+
+  <line x1="966" y1="498" x2="1214" y2="498" stroke="#93C5FD" stroke-width="1.2"/>
+  <text x="978" y="518" font-size="11" font-weight="700" fill="#1E3A8A">Embedding:</text>
+  <text x="978" y="535" font-size="10.5" fill="#2563EB">text-embedding-3-small</text>
+  <text x="978" y="551" font-size="10.5" fill="#2563EB">via openai_client (RAW SDK)</text>
+  <text x="978" y="567" font-size="10" fill="#3B82F6">NOT via ChatOpenAI</text>
+
+  <line x1="966" y1="580" x2="1214" y2="580" stroke="#93C5FD" stroke-width="1.2"/>
+  <text x="978" y="600" font-size="11" font-weight="700" fill="#1E3A8A">Security:</text>
+  <text x="978" y="618" font-size="10.5" fill="#DC2626">🔒 chroma_db/ in .gitignore</text>
+  <text x="978" y="635" font-size="10.5" fill="#2563EB">PersistentClient (abs path)</text>
+  <text x="978" y="651" font-size="10.5" fill="#2563EB">anonymized_telemetry=False</text>
+  <text x="978" y="667" font-size="10.5" fill="#2563EB">cosine similarity space</text>
+
+  <line x1="966" y1="682" x2="1214" y2="682" stroke="#93C5FD" stroke-width="1.2"/>
+  <text x="978" y="702" font-size="11" font-weight="700" fill="#1E3A8A">Write pattern:</text>
+  <text x="978" y="720" font-size="10" fill="#2563EB">Stage 1 → research_{uuid}</text>
+  <text x="978" y="737" font-size="10" fill="#2563EB">Stage 2 → strategy_{uuid}</text>
+  <text x="978" y="754" font-size="10" fill="#2563EB">Stage 3 → content_{uuid}</text>
+  <text x="978" y="771" font-size="10" fill="#2563EB">Stage 4 → brand_{uuid}</text>
+
+  <line x1="966" y1="786" x2="1214" y2="786" stroke="#93C5FD" stroke-width="1.2"/>
+  <text x="978" y="806" font-size="11" font-weight="700" fill="#1E3A8A">RAG Retrieve:</text>
+  <text x="978" y="824" font-size="10" fill="#2563EB">Stage 2 reads research_{uuid}</text>
+  <text x="978" y="841" font-size="10" fill="#2563EB">Stage 3 reads strategy_{uuid}</text>
+  <text x="978" y="858" font-size="10" fill="#3B82F6">(ID-based, deterministic)</text>
+
+  <!-- ══════════════════════════════════════════════════════════
+       STAGE 1 — RESEARCH AGENT
+  ══════════════════════════════════════════════════════════ -->
+  <rect x="32" y="432" width="900" height="216" rx="14"
+        fill="url(#g-blue)" stroke="#1D4ED8" stroke-width="2.5" filter="url(#shadow)"/>
+  <rect x="32" y="432" width="900" height="30" rx="14" fill="#1D4ED8"/>
+  <rect x="32" y="448" width="900" height="14" fill="#1D4ED8"/>
+  <text x="482" y="452" text-anchor="middle" font-size="12.5" font-weight="800" fill="#fff"
+        letter-spacing="0.8">
+    STAGE 1  —  ResearchAgent(openai_client, tavily_client, llm=llm)  🔍
+  </text>
+
+  <!-- R1: build_search_queries — TRACED -->
+  <rect x="52" y="474" width="200" height="158" rx="9"
+        fill="#C5B4EC" stroke="#7B5EA7" stroke-width="2" filter="url(#shadow-sm)"/>
+  <text x="152" y="493" text-anchor="middle" font-size="11" font-weight="800" fill="#2D2249">⚡ build_search_queries()</text>
+  <text x="152" y="510" text-anchor="middle" font-size="10" fill="#3730A3" font-weight="700">self.llm.invoke() ← TRACED</text>
+  <text x="152" y="526" text-anchor="middle" font-size="10" fill="#2D2249">Adaptive: LLM generates</text>
+  <text x="152" y="541" text-anchor="middle" font-size="10" fill="#2D2249">5 targeted KSA queries</text>
+  <text x="152" y="556" text-anchor="middle" font-size="10" fill="#4C1D95">Fallback: static 7-query</text>
+  <text x="152" y="571" text-anchor="middle" font-size="10" fill="#4C1D95">list on any failure</text>
+  <text x="152" y="589" text-anchor="middle" font-size="9.5" fill="#6D28D9" font-style="italic">LangSmith span ✓</text>
+  <text x="152" y="606" text-anchor="middle" font-size="9.5" fill="#6D28D9" font-style="italic">tokens + latency tracked</text>
+  <text x="152" y="622" text-anchor="middle" font-size="9.5" fill="#6D28D9" font-style="italic">temp=0.3  max=400</text>
+
+  <!-- Arrow R1→R2 -->
+  <line x1="252" y1="553" x2="268" y2="553" stroke="#6B7280" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- R2: Tavily search — RAW -->
+  <rect x="268" y="474" width="196" height="158" rx="9"
+        fill="url(#g-amber)" stroke="#D97706" stroke-width="2" filter="url(#shadow-sm)"/>
+  <text x="366" y="493" text-anchor="middle" font-size="11" font-weight="800" fill="#78350F">🌐 Tavily API Search</text>
+  <text x="366" y="510" text-anchor="middle" font-size="10" fill="#92400E" font-weight="700">Direct HTTP — NOT TRACED</text>
+  <text x="366" y="526" text-anchor="middle" font-size="10" fill="#78350F">search_depth=advanced</text>
+  <text x="366" y="541" text-anchor="middle" font-size="10" fill="#78350F">max_results=5 per query</text>
+  <text x="366" y="556" text-anchor="middle" font-size="10" fill="#78350F">Vision 2030 terminology</text>
+  <text x="366" y="571" text-anchor="middle" font-size="10" fill="#78350F">in search strings</text>
+  <text x="366" y="589" text-anchor="middle" font-size="9.5" fill="#B45309" font-style="italic">5 × 7 queries max</text>
+  <text x="366" y="606" text-anchor="middle" font-size="9.5" fill="#B45309" font-style="italic">snippets ≤500 chars ea.</text>
+  <text x="366" y="622" text-anchor="middle" font-size="9.5" fill="#B45309" font-style="italic">fallback: parametric KG</text>
+
+  <!-- Arrow R2→R3 -->
+  <line x1="464" y1="553" x2="480" y2="553" stroke="#6B7280" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- R3: synthesise_report — TRACED -->
+  <rect x="480" y="474" width="200" height="158" rx="9"
+        fill="#C5B4EC" stroke="#7B5EA7" stroke-width="2" filter="url(#shadow-sm)"/>
+  <text x="580" y="493" text-anchor="middle" font-size="11" font-weight="800" fill="#2D2249">📝 synthesise_report()</text>
+  <text x="580" y="510" text-anchor="middle" font-size="10" fill="#3730A3" font-weight="700">self.llm.invoke() ← TRACED</text>
+  <text x="580" y="526" text-anchor="middle" font-size="10" fill="#2D2249">V2030 system prompt</text>
+  <text x="580" y="541" text-anchor="middle" font-size="10" fill="#2D2249">ZATCA · NEOM · Nitaqat</text>
+  <text x="580" y="556" text-anchor="middle" font-size="10" fill="#2D2249">Wasta · Majlis · Shura</text>
+  <text x="580" y="571" text-anchor="middle" font-size="10" fill="#2D2249">7-section KSA report</text>
+  <text x="580" y="589" text-anchor="middle" font-size="9.5" fill="#6D28D9" font-style="italic">LangSmith span ✓</text>
+  <text x="580" y="606" text-anchor="middle" font-size="9.5" fill="#6D28D9" font-style="italic">temp=0.35  max=2200</text>
+  <text x="580" y="622" text-anchor="middle" font-size="9.5" fill="#6D28D9" font-style="italic">tokens + cost captured</text>
+
+  <!-- Arrow R3→R4 -->
+  <line x1="680" y1="553" x2="696" y2="553" stroke="#6B7280" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- R4: persist_research — RAW -->
+  <rect x="696" y="474" width="214" height="158" rx="9"
+        fill="url(#g-amber)" stroke="#D97706" stroke-width="1.8" filter="url(#shadow-sm)"/>
+  <text x="803" y="493" text-anchor="middle" font-size="11" font-weight="800" fill="#78350F">💾 persist_research()</text>
+  <text x="803" y="510" text-anchor="middle" font-size="10" fill="#92400E" font-weight="700">openai_client.embeddings ← RAW</text>
+  <text x="803" y="526" text-anchor="middle" font-size="10" fill="#78350F">text-embedding-3-small</text>
+  <text x="803" y="541" text-anchor="middle" font-size="10" fill="#78350F">ChromaDB upsert</text>
+  <text x="803" y="556" text-anchor="middle" font-size="10" fill="#78350F">research_{uuid}</text>
+  <text x="803" y="571" text-anchor="middle" font-size="10" fill="#78350F">Metadata: company, budget</text>
+  <text x="803" y="589" text-anchor="middle" font-size="9.5" fill="#B45309" font-style="italic">Not LangSmith-traced</text>
+  <text x="803" y="606" text-anchor="middle" font-size="9.5" fill="#B45309" font-style="italic">embedding cost not tracked</text>
+
+  <!-- Arrow Stage 1 → ChromaDB -->
+  <path d="M910,553 L948,553" fill="none" stroke="#2563EB" stroke-width="1.8"
+        stroke-dasharray="5,3" marker-end="url(#arr-blue)"/>
+  <text x="929" y="546" text-anchor="middle" font-size="9" fill="#2563EB">write</text>
+
+  <!-- Arrow Stage 1 → Stage 2 -->
+  <line x1="482" y1="648" x2="482" y2="694" stroke="#6B7280" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="498" y="676" text-anchor="start" font-size="10" fill="#6B7280">research report text</text>
+
+  <!-- RAG arrow: ChromaDB → Stage 2 -->
+  <path d="M952,780 L932,780 L932,746 L932,724" fill="none" stroke="#2563EB"
+        stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#arr-blue)"/>
+  <text x="920" y="758" text-anchor="middle" font-size="9" fill="#2563EB"
+        transform="rotate(-90,920,758)">RAG retrieve</text>
+
+  <!-- ══════════════════════════════════════════════════════════
+       STAGE 2 — STRATEGY AGENT
+  ══════════════════════════════════════════════════════════ -->
+  <rect x="32" y="694" width="900" height="222" rx="14"
+        fill="url(#g-green)" stroke="#15803D" stroke-width="2.5" filter="url(#shadow)"/>
+  <rect x="32" y="694" width="900" height="30" rx="14" fill="#15803D"/>
+  <rect x="32" y="710" width="900" height="14" fill="#15803D"/>
+  <text x="482" y="714" text-anchor="middle" font-size="12.5" font-weight="800" fill="#fff"
+        letter-spacing="0.8">
+    STAGE 2  —  StrategyAgent(openai_client, llm=llm)  🗺️
+  </text>
+
+  <!-- ST1: Budget engine — pure Python -->
+  <rect x="52" y="736" width="220" height="162" rx="9"
+        fill="url(#g-slate)" stroke="#94A3B8" stroke-width="1.8" filter="url(#shadow-sm)"/>
+  <text x="162" y="755" text-anchor="middle" font-size="11" font-weight="800" fill="#334155">💰 _parse_budget_sar()</text>
+  <text x="162" y="772" text-anchor="middle" font-size="10" fill="#475569" font-weight="700">Pure Python — no LLM</text>
+  <text x="162" y="788" text-anchor="middle" font-size="10" fill="#334155">Extracts integer SAR value</text>
+  <text x="162" y="803" text-anchor="middle" font-size="10" fill="#334155">8-channel allocation:</text>
+  <text x="162" y="818" text-anchor="middle" font-size="9.5" fill="#475569">LinkedIn 30% · Google 20%</text>
+  <text x="162" y="833" text-anchor="middle" font-size="9.5" fill="#475569">Snapchat 15% · IG 10%</text>
+  <text x="162" y="848" text-anchor="middle" font-size="9.5" fill="#475569">Events 10% · Reserve 3%</text>
+  <text x="162" y="866" text-anchor="middle" font-size="9.5" fill="#64748B" font-style="italic">Math: no LLM needed</text>
+  <text x="162" y="882" text-anchor="middle" font-size="9.5" fill="#64748B" font-style="italic">prevents SAR hallucination</text>
+
+  <!-- Arrow ST1→ST2 -->
+  <line x1="272" y1="817" x2="288" y2="817" stroke="#6B7280" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- ST2: generate_strategy — TRACED -->
+  <rect x="288" y="736" width="234" height="162" rx="9"
+        fill="#C5B4EC" stroke="#7B5EA7" stroke-width="2" filter="url(#shadow-sm)"/>
+  <text x="405" y="755" text-anchor="middle" font-size="11" font-weight="800" fill="#2D2249">📋 generate_strategy()</text>
+  <text x="405" y="772" text-anchor="middle" font-size="10" fill="#3730A3" font-weight="700">self.llm.with_structured_output</text>
+  <text x="405" y="787" text-anchor="middle" font-size="10" fill="#3730A3" font-weight="700">  (GTMStrategyDocument)</text>
+  <text x="405" y="802" text-anchor="middle" font-size="10" fill="#3730A3" font-weight="700">.invoke(messages) ← TRACED</text>
+  <text x="405" y="818" text-anchor="middle" font-size="10" fill="#2D2249">ICP segments · Value prop</text>
+  <text x="405" y="833" text-anchor="middle" font-size="10" fill="#2D2249">Messaging pillars · Channels</text>
+  <text x="405" y="848" text-anchor="middle" font-size="10" fill="#2D2249">30-day calendar · KPIs</text>
+  <text x="405" y="866" text-anchor="middle" font-size="9.5" fill="#6D28D9" font-style="italic">LangSmith span ✓  max=3500</text>
+  <text x="405" y="882" text-anchor="middle" font-size="9.5" fill="#6D28D9" font-style="italic">Fallback: openai_client.parse()</text>
+
+  <!-- Arrow ST2→ST3 -->
+  <line x1="522" y1="817" x2="538" y2="817" stroke="#6B7280" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- ST3: persist_strategy — RAW -->
+  <rect x="538" y="736" width="214" height="162" rx="9"
+        fill="url(#g-amber)" stroke="#D97706" stroke-width="1.8" filter="url(#shadow-sm)"/>
+  <text x="645" y="755" text-anchor="middle" font-size="11" font-weight="800" fill="#78350F">💾 persist_strategy()</text>
+  <text x="645" y="772" text-anchor="middle" font-size="10" fill="#92400E" font-weight="700">openai_client.embeddings ← RAW</text>
+  <text x="645" y="788" text-anchor="middle" font-size="10" fill="#78350F">Bundles into one RAG doc:</text>
+  <text x="645" y="803" text-anchor="middle" font-size="10" fill="#78350F">strategy + calendar</text>
+  <text x="645" y="818" text-anchor="middle" font-size="10" fill="#78350F">+ budget matrix</text>
+  <text x="645" y="833" text-anchor="middle" font-size="10" fill="#78350F">strategy_{uuid}</text>
+  <text x="645" y="848" text-anchor="middle" font-size="10" fill="#78350F">Meta: budget_sar_integer</text>
+  <text x="645" y="866" text-anchor="middle" font-size="9.5" fill="#B45309" font-style="italic">has_budget_breakdown=true</text>
+  <text x="645" y="882" text-anchor="middle" font-size="9.5" fill="#B45309" font-style="italic">has_calendar=true</text>
+
+  <!-- Arrow Stage 2 → ChromaDB -->
+  <path d="M752,817 L948,817" fill="none" stroke="#2563EB" stroke-width="1.8"
+        stroke-dasharray="5,3" marker-end="url(#arr-blue)"/>
+  <text x="850" y="810" text-anchor="middle" font-size="9" fill="#2563EB">write</text>
+
+  <!-- Arrow Stage 2 → Stage 3 -->
+  <line x1="482" y1="916" x2="482" y2="958" stroke="#6B7280" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="498" y="942" text-anchor="start" font-size="10" fill="#6B7280">strategy text + calendar</text>
+
+  <!-- RAG arrow: ChromaDB → Stage 3 -->
+  <path d="M952,1044 L932,1044 L932,1010 L932,988" fill="none" stroke="#2563EB"
+        stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#arr-blue)"/>
+  <text x="920" y="1022" text-anchor="middle" font-size="9" fill="#2563EB"
+        transform="rotate(-90,920,1022)">RAG retrieve</text>
+
+  <!-- ══════════════════════════════════════════════════════════
+       STAGE 3 — CONTENT AGENT
+  ══════════════════════════════════════════════════════════ -->
+  <rect x="32" y="958" width="900" height="310" rx="14"
+        fill="url(#g-blue)" stroke="#1D4ED8" stroke-width="2.5" filter="url(#shadow)"/>
+  <rect x="32" y="958" width="900" height="30" rx="14" fill="#1D4ED8"/>
+  <rect x="32" y="974" width="900" height="14" fill="#1D4ED8"/>
+  <text x="482" y="978" text-anchor="middle" font-size="12.5" font-weight="800" fill="#fff"
+        letter-spacing="0.8">
+    STAGE 3  —  ContentAgent(openai_client, llm=llm)  ✍️
+  </text>
+
+  <!-- C1: extract anchors — pure Python -->
+  <rect x="52" y="1000" width="190" height="248" rx="9"
+        fill="url(#g-slate)" stroke="#94A3B8" stroke-width="1.8" filter="url(#shadow-sm)"/>
+  <text x="147" y="1019" text-anchor="middle" font-size="10.5" font-weight="800" fill="#334155">🔍 _extract_strategy_anchors()</text>
+  <text x="147" y="1036" text-anchor="middle" font-size="10" fill="#475569" font-weight="700">Pure Python — no LLM</text>
+  <text x="147" y="1052" text-anchor="middle" font-size="10" fill="#334155">Filters strategy doc:</text>
+  <text x="147" y="1067" text-anchor="middle" font-size="10" fill="#334155">Value Proposition</text>
+  <text x="147" y="1082" text-anchor="middle" font-size="10" fill="#334155">Messaging Pillars</text>
+  <text x="147" y="1097" text-anchor="middle" font-size="10" fill="#334155">Channel Strategy</text>
+  <text x="147" y="1112" text-anchor="middle" font-size="10" fill="#334155">ICP Pain Points</text>
+  <text x="147" y="1127" text-anchor="middle" font-size="10" fill="#334155">Executive Summary</text>
+  <text x="147" y="1145" text-anchor="middle" font-size="10" fill="#64748B">~65% token reduction</text>
+  <text x="147" y="1161" text-anchor="middle" font-size="9.5" fill="#64748B" font-style="italic">preserves all creative signal</text>
+  <text x="147" y="1178" text-anchor="middle" font-size="9.5" fill="#64748B" font-style="italic">_compute_max_tokens():</text>
+  <text x="147" y="1194" text-anchor="middle" font-size="9.5" fill="#64748B" font-style="italic">dynamic 2000–3500 cap</text>
+  <text x="147" y="1211" text-anchor="middle" font-size="9.5" fill="#64748B" font-style="italic">no LangSmith span</text>
+  <text x="147" y="1234" text-anchor="middle" font-size="9.5" fill="#64748B" font-style="italic">(pure computation)</text>
+
+  <!-- Arrow C1→C2 -->
+  <line x1="242" y1="1124" x2="256" y2="1124" stroke="#6B7280" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- C2: first draft — TRACED -->
+  <rect x="256" y="1000" width="200" height="248" rx="9"
+        fill="#C5B4EC" stroke="#7B5EA7" stroke-width="2" filter="url(#shadow-sm)"/>
+  <text x="356" y="1019" text-anchor="middle" font-size="10.5" font-weight="800" fill="#2D2249">🎨 First Draft Generation</text>
+  <text x="356" y="1036" text-anchor="middle" font-size="9.5" fill="#3730A3" font-weight="700">self.llm.with_structured_output</text>
+  <text x="356" y="1051" text-anchor="middle" font-size="9.5" fill="#3730A3" font-weight="700">  (ContentPackage).invoke()</text>
+  <text x="356" y="1066" text-anchor="middle" font-size="9.5" fill="#3730A3" font-weight="700">← TRACED</text>
+  <text x="356" y="1082" text-anchor="middle" font-size="10" fill="#2D2249">Generates:</text>
+  <text x="356" y="1097" text-anchor="middle" font-size="9.5" fill="#2D2249">3 social posts (LinkedIn/X)</text>
+  <text x="356" y="1112" text-anchor="middle" font-size="9.5" fill="#2D2249">Marketing email</text>
+  <text x="356" y="1127" text-anchor="middle" font-size="9.5" fill="#2D2249">3 ad copy sets</text>
+  <text x="356" y="1142" text-anchor="middle" font-size="9.5" fill="#2D2249">Video production script</text>
+  <text x="356" y="1157" text-anchor="middle" font-size="9.5" fill="#2D2249">CoT reasoning field</text>
+  <text x="356" y="1176" text-anchor="middle" font-size="9" fill="#6D28D9" font-style="italic">LangSmith span ✓</text>
+  <text x="356" y="1192" text-anchor="middle" font-size="9" fill="#6D28D9" font-style="italic">tokens + cost tracked</text>
+  <text x="356" y="1208" text-anchor="middle" font-size="9" fill="#6D28D9" font-style="italic">Fallback: openai_client.parse()</text>
+  <text x="356" y="1234" text-anchor="middle" font-size="9" fill="#6D28D9" font-style="italic">max_tokens: dynamic 2000-3500</text>
+
+  <!-- Arrow C2→C3 -->
+  <line x1="456" y1="1124" x2="472" y2="1124" stroke="#6B7280" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- C3: critique — TRACED -->
+  <rect x="472" y="1000" width="196" height="248" rx="9"
+        fill="#C5B4EC" stroke="#7B5EA7" stroke-width="2" filter="url(#shadow-sm)"/>
+  <text x="570" y="1019" text-anchor="middle" font-size="10.5" font-weight="800" fill="#2D2249">🪞 Self-Reflection Critique</text>
+  <text x="570" y="1036" text-anchor="middle" font-size="9.5" fill="#3730A3" font-weight="700">_critique_draft()</text>
+  <text x="570" y="1051" text-anchor="middle" font-size="9.5" fill="#3730A3" font-weight="700">self.llm.invoke() ← TRACED</text>
+  <text x="570" y="1067" text-anchor="middle" font-size="9.5" fill="#2D2249">Evaluates draft against:</text>
+  <text x="570" y="1082" text-anchor="middle" font-size="9.5" fill="#2D2249">• Hook strength</text>
+  <text x="570" y="1097" text-anchor="middle" font-size="9.5" fill="#2D2249">• KSA cultural fit</text>
+  <text x="570" y="1112" text-anchor="middle" font-size="9.5" fill="#2D2249">• CTA clarity</text>
+  <text x="570" y="1127" text-anchor="middle" font-size="9.5" fill="#2D2249">• Brand voice alignment</text>
+  <text x="570" y="1142" text-anchor="middle" font-size="9.5" fill="#2D2249">Returns 3-5 specific</text>
+  <text x="570" y="1157" text-anchor="middle" font-size="9.5" fill="#2D2249">improvement points</text>
+  <text x="570" y="1176" text-anchor="middle" font-size="9" fill="#6D28D9" font-style="italic">LangSmith span ✓</text>
+  <text x="570" y="1192" text-anchor="middle" font-size="9" fill="#6D28D9" font-style="italic">temp=0.3  max=400 tok</text>
+  <text x="570" y="1208" text-anchor="middle" font-size="9" fill="#6D28D9" font-style="italic">skipped gracefully on fail</text>
+
+  <!-- Arrow C3→C4 -->
+  <line x1="668" y1="1124" x2="684" y2="1124" stroke="#6B7280" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="676" y="1116" text-anchor="middle" font-size="9" fill="#6B7280">critique</text>
+
+  <!-- C4: refinement — TRACED -->
+  <rect x="684" y="1000" width="208" height="248" rx="9"
+        fill="#C5B4EC" stroke="#7B5EA7" stroke-width="2" filter="url(#shadow-sm)"/>
+  <text x="788" y="1019" text-anchor="middle" font-size="10.5" font-weight="800" fill="#2D2249">✨ Refinement Pass</text>
+  <text x="788" y="1036" text-anchor="middle" font-size="9.5" fill="#3730A3" font-weight="700">self.llm.with_structured_output</text>
+  <text x="788" y="1051" text-anchor="middle" font-size="9.5" fill="#3730A3" font-weight="700">  (ContentPackage).invoke()</text>
+  <text x="788" y="1066" text-anchor="middle" font-size="9.5" fill="#3730A3" font-weight="700">← TRACED</text>
+  <text x="788" y="1082" text-anchor="middle" font-size="9.5" fill="#2D2249">Critique injected into</text>
+  <text x="788" y="1097" text-anchor="middle" font-size="9.5" fill="#2D2249">refined prompt</text>
+  <text x="788" y="1112" text-anchor="middle" font-size="9.5" fill="#2D2249">Produces improved</text>
+  <text x="788" y="1127" text-anchor="middle" font-size="9.5" fill="#2D2249">ContentPackage</text>
+  <text x="788" y="1142" text-anchor="middle" font-size="9.5" fill="#4C1D95">Fallback: return first draft</text>
+  <text x="788" y="1157" text-anchor="middle" font-size="9.5" fill="#4C1D95">gracefully on any error</text>
+  <text x="788" y="1176" text-anchor="middle" font-size="9" fill="#6D28D9" font-style="italic">LangSmith span ✓</text>
+  <text x="788" y="1192" text-anchor="middle" font-size="9" fill="#6D28D9" font-style="italic">3rd LLM call in Stage 3</text>
+  <text x="788" y="1208" text-anchor="middle" font-size="9" fill="#6D28D9" font-style="italic">same dynamic max_tokens</text>
+
+  <!-- Arrow Stage 3 → ChromaDB (persist) -->
+  <path d="M892,1124 L948,1124" fill="none" stroke="#2563EB" stroke-width="1.8"
+        stroke-dasharray="5,3" marker-end="url(#arr-blue)"/>
+  <text x="920" y="1116" text-anchor="middle" font-size="9" fill="#2563EB">write</text>
+
+  <!-- Arrow Stage 3 → Stage 4 -->
+  <line x1="482" y1="1268" x2="482" y2="1316" stroke="#6B7280" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="498" y="1297" text-anchor="start" font-size="10" fill="#6B7280">ContentPackage (with CoT reasoning)</text>
+
+  <!-- ══════════════════════════════════════════════════════════
+       STAGE 4 — BRAND ALIGNMENT AGENT
+  ══════════════════════════════════════════════════════════ -->
+  <rect x="32" y="1316" width="900" height="260" rx="14"
+        fill="url(#g-green)" stroke="#15803D" stroke-width="2.5" filter="url(#shadow)"/>
+  <rect x="32" y="1316" width="900" height="30" rx="14" fill="#15803D"/>
+  <rect x="32" y="1332" width="900" height="14" fill="#15803D"/>
+  <text x="482" y="1336" text-anchor="middle" font-size="12.5" font-weight="800" fill="#fff"
+        letter-spacing="0.8">
+    STAGE 4  —  BrandAlignmentAgent(openai_client, llm=llm)  🎨  FINAL GATE
+  </text>
+
+  <!-- B1: serialize — pure Python -->
+  <rect x="52" y="1358" width="200" height="196" rx="9"
+        fill="url(#g-slate)" stroke="#94A3B8" stroke-width="1.8" filter="url(#shadow-sm)"/>
+  <text x="152" y="1377" text-anchor="middle" font-size="10.5" font-weight="800" fill="#334155">📖 _serialize_package()</text>
+  <text x="152" y="1394" text-anchor="middle" font-size="10" fill="#475569" font-weight="700">Pure Python — no LLM</text>
+  <text x="152" y="1410" text-anchor="middle" font-size="10" fill="#334155">Reads CoT reasoning</text>
+  <text x="152" y="1425" text-anchor="middle" font-size="10" fill="#334155">field from ContentPackage</text>
+  <text x="152" y="1440" text-anchor="middle" font-size="10" fill="#334155">Serialises all content:</text>
+  <text x="152" y="1455" text-anchor="middle" font-size="9.5" fill="#475569">Posts · Email · Ads</text>
+  <text x="152" y="1470" text-anchor="middle" font-size="9.5" fill="#475569">Video Script + reasoning</text>
+  <text x="152" y="1488" text-anchor="middle" font-size="9.5" fill="#64748B" font-style="italic">Computes dynamic max_tokens:</text>
+  <text x="152" y="1504" text-anchor="middle" font-size="9.5" fill="#64748B" font-style="italic">size × 0.60 ÷ 4</text>
+  <text x="152" y="1520" text-anchor="middle" font-size="9.5" fill="#64748B" font-style="italic">min=2000  max=3800</text>
+  <text x="152" y="1540" text-anchor="middle" font-size="9.5" fill="#64748B" font-style="italic">no LangSmith span</text>
+
+  <!-- Arrow B1→B2 -->
+  <line x1="252" y1="1456" x2="268" y2="1456" stroke="#6B7280" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- B2: run_alignment — TRACED -->
+  <rect x="268" y="1358" width="216" height="196" rx="9"
+        fill="#C5B4EC" stroke="#7B5EA7" stroke-width="2" filter="url(#shadow-sm)"/>
+  <text x="376" y="1377" text-anchor="middle" font-size="10.5" font-weight="800" fill="#2D2249">✅ run_alignment()</text>
+  <text x="376" y="1394" text-anchor="middle" font-size="9.5" fill="#3730A3" font-weight="700">self.llm.with_structured_output</text>
+  <text x="376" y="1409" text-anchor="middle" font-size="9.5" fill="#3730A3" font-weight="700">  (RefinedContent).invoke()</text>
+  <text x="376" y="1424" text-anchor="middle" font-size="9.5" fill="#3730A3" font-weight="700">← TRACED</text>
+  <text x="376" y="1440" text-anchor="middle" font-size="9.5" fill="#2D2249">Reads CoT reasoning first</text>
+  <text x="376" y="1455" text-anchor="middle" font-size="9.5" fill="#2D2249">Only overrides if:</text>
+  <text x="376" y="1470" text-anchor="middle" font-size="9.5" fill="#2D2249">• Compliance violation</text>
+  <text x="376" y="1485" text-anchor="middle" font-size="9.5" fill="#2D2249">• Clear off-brand issue</text>
+  <text x="376" y="1503" text-anchor="middle" font-size="9" fill="#6D28D9" font-style="italic">LangSmith span ✓</text>
+  <text x="376" y="1519" text-anchor="middle" font-size="9" fill="#6D28D9" font-style="italic">max tokens: dynamic</text>
+  <text x="376" y="1535" text-anchor="middle" font-size="9" fill="#6D28D9" font-style="italic">Fallback: openai_client.parse()</text>
+
+  <!-- Arrow B2→B3 -->
+  <line x1="484" y1="1456" x2="500" y2="1456" stroke="#6B7280" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- B3: Error handling -->
+  <rect x="500" y="1358" width="210" height="196" rx="9"
+        fill="#FFF1F2" stroke="#DC2626" stroke-width="1.8" filter="url(#shadow-sm)"/>
+  <text x="605" y="1377" text-anchor="middle" font-size="10.5" font-weight="800" fill="#7F1D1D">🛡️ Error Handling</text>
+  <text x="605" y="1394" text-anchor="middle" font-size="10" fill="#991B1B" font-weight="700">Comprehensive try-except:</text>
+  <text x="605" y="1410" text-anchor="middle" font-size="10" fill="#DC2626">RateLimitError</text>
+  <text x="605" y="1425" text-anchor="middle" font-size="10" fill="#DC2626">APIConnectionError</text>
+  <text x="605" y="1440" text-anchor="middle" font-size="10" fill="#DC2626">APIStatusError (400/500)</text>
+  <text x="605" y="1455" text-anchor="middle" font-size="10" fill="#DC2626">RuntimeError (context)</text>
+  <text x="605" y="1470" text-anchor="middle" font-size="9.5" fill="#7F1D1D">All re-raised with full</text>
+  <text x="605" y="1485" text-anchor="middle" font-size="9.5" fill="#7F1D1D">diagnostic context</text>
+  <text x="605" y="1503" text-anchor="middle" font-size="9" fill="#B91C1C" font-style="italic">logs: status code</text>
+  <text x="605" y="1519" text-anchor="middle" font-size="9" fill="#B91C1C" font-style="italic">content size in chars</text>
+  <text x="605" y="1535" text-anchor="middle" font-size="9" fill="#B91C1C" font-style="italic">agent name + exc message</text>
+
+  <!-- Arrow B3→B4 -->
+  <line x1="710" y1="1456" x2="726" y2="1456" stroke="#6B7280" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- B4: persist_alignment — RAW -->
+  <rect x="726" y="1358" width="184" height="196" rx="9"
+        fill="url(#g-amber)" stroke="#D97706" stroke-width="1.8" filter="url(#shadow-sm)"/>
+  <text x="818" y="1377" text-anchor="middle" font-size="10.5" font-weight="800" fill="#78350F">💾 persist_alignment()</text>
+  <text x="818" y="1394" text-anchor="middle" font-size="10" fill="#92400E" font-weight="700">openai_client.embeddings ← RAW</text>
+  <text x="818" y="1410" text-anchor="middle" font-size="10" fill="#78350F">brand_{uuid}</text>
+  <text x="818" y="1425" text-anchor="middle" font-size="10" fill="#78350F">Metadata flags:</text>
+  <text x="818" y="1440" text-anchor="middle" font-size="9.5" fill="#78350F">cot_aware_audit=true</text>
+  <text x="818" y="1455" text-anchor="middle" font-size="9.5" fill="#78350F">alignment_summary</text>
+  <text x="818" y="1470" text-anchor="middle" font-size="9.5" fill="#78350F">content_guardrails</text>
+  <text x="818" y="1488" text-anchor="middle" font-size="9.5" fill="#B45309" font-style="italic">Not LangSmith-traced</text>
+  <text x="818" y="1504" text-anchor="middle" font-size="9.5" fill="#B45309" font-style="italic">embedding cost excluded</text>
+  <text x="818" y="1520" text-anchor="middle" font-size="9.5" fill="#B45309" font-style="italic">from sidebar panel</text>
+
+  <!-- Arrow Stage 4 → ChromaDB -->
+  <path d="M910,1456 L948,1456" fill="none" stroke="#2563EB" stroke-width="1.8"
+        stroke-dasharray="5,3" marker-end="url(#arr-blue)"/>
+  <text x="929" y="1448" text-anchor="middle" font-size="9" fill="#2563EB">write</text>
+
+  <!-- Arrow Stage 4 → Output -->
+  <line x1="482" y1="1576" x2="482" y2="1622" stroke="#6B7280" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="498" y="1604" text-anchor="start" font-size="10" fill="#6B7280">RefinedContent (brand-verified)</text>
+
+  <!-- ══════════════════════════════════════════════════════════
+       OUTPUT & UTILITIES LAYER
+  ══════════════════════════════════════════════════════════ -->
+  <rect x="32" y="1622" width="900" height="226" rx="14"
+        fill="url(#g-lavender)" stroke="#7C3AED" stroke-width="2.5" filter="url(#shadow)"/>
+  <rect x="32" y="1622" width="900" height="30" rx="14" fill="#7C3AED"/>
+  <rect x="32" y="1638" width="900" height="14" fill="#7C3AED"/>
+  <text x="482" y="1642" text-anchor="middle" font-size="12.5" font-weight="800" fill="#fff"
+        letter-spacing="0.8">
+    📤  OUTPUT &amp; UTILITIES LAYER  —  Streamlit Frontend
+  </text>
+
+  <!-- O1: st.tabs -->
+  <rect x="52" y="1664" width="200" height="168" rx="9"
+        fill="#fff" stroke="#C5B4EC" stroke-width="1.8" filter="url(#shadow-sm)"/>
+  <text x="152" y="1683" text-anchor="middle" font-size="11" font-weight="800" fill="#5B21B6">🖥️ st.tabs Dashboard</text>
+  <text x="152" y="1700" text-anchor="middle" font-size="10" fill="#6D28D9">🎨 Brand Alignment</text>
+  <text x="152" y="1715" text-anchor="middle" font-size="10" fill="#6D28D9">✍️  Content Package</text>
+  <text x="152" y="1730" text-anchor="middle" font-size="10" fill="#6D28D9">🎯 Strategy + Calendar</text>
+  <text x="152" y="1745" text-anchor="middle" font-size="10" fill="#6D28D9">🔍 Research Report</text>
+  <text x="152" y="1763" text-anchor="middle" font-size="9.5" fill="#7C3AED" font-style="italic">st.container(border=True)</text>
+  <text x="152" y="1779" text-anchor="middle" font-size="9.5" fill="#7C3AED" font-style="italic">no nested expanders</text>
+  <text x="152" y="1795" text-anchor="middle" font-size="9.5" fill="#7C3AED" font-style="italic">per-agent PDF downloads</text>
+  <text x="152" y="1815" text-anchor="middle" font-size="9.5" fill="#7C3AED" font-style="italic">copy-to-clipboard blocks</text>
+
+  <!-- O2: Unicode sanitiser -->
+  <rect x="274" y="1664" width="200" height="168" rx="9"
+        fill="#fff" stroke="#C5B4EC" stroke-width="1.8" filter="url(#shadow-sm)"/>
+  <text x="374" y="1683" text-anchor="middle" font-size="11" font-weight="800" fill="#5B21B6">🔤 Unicode Sanitiser</text>
+  <text x="374" y="1700" text-anchor="middle" font-size="10" fill="#6D28D9">str.translate(_TRANS)</text>
+  <text x="374" y="1715" text-anchor="middle" font-size="10" fill="#6D28D9">40+ char mappings:</text>
+  <text x="374" y="1730" text-anchor="middle" font-size="9.5" fill="#4C1D95">U+2014 "—" → "--"</text>
+  <text x="374" y="1745" text-anchor="middle" font-size="9.5" fill="#4C1D95">U+2022 "•" → "-"</text>
+  <text x="374" y="1760" text-anchor="middle" font-size="9.5" fill="#4C1D95">Smart quotes → ASCII</text>
+  <text x="374" y="1775" text-anchor="middle" font-size="9.5" fill="#4C1D95">Arrows → ASCII equiv</text>
+  <text x="374" y="1793" text-anchor="middle" font-size="9" fill="#7C3AED" font-style="italic">prevents fpdf2 crash:</text>
+  <text x="374" y="1809" text-anchor="middle" font-size="9" fill="#7C3AED" font-style="italic">"char outside font range"</text>
+  <text x="374" y="1825" text-anchor="middle" font-size="9" fill="#7C3AED" font-style="italic">Helvetica/helveticaI safe</text>
+
+  <!-- O3: PDF export -->
+  <rect x="496" y="1664" width="200" height="168" rx="9"
+        fill="#fff" stroke="#C5B4EC" stroke-width="1.8" filter="url(#shadow-sm)"/>
+  <text x="596" y="1683" text-anchor="middle" font-size="11" font-weight="800" fill="#5B21B6">📄 pdf_export.py</text>
+  <text x="596" y="1700" text-anchor="middle" font-size="10" fill="#6D28D9">fpdf2 · FPDF subclass</text>
+  <text x="596" y="1715" text-anchor="middle" font-size="10" fill="#6D28D9">CONTENT_W = 190mm</text>
+  <text x="596" y="1730" text-anchor="middle" font-size="10" fill="#6D28D9">Every multi_cell uses</text>
+  <text x="596" y="1745" text-anchor="middle" font-size="10" fill="#6D28D9">explicit safe width</text>
+  <text x="596" y="1760" text-anchor="middle" font-size="9.5" fill="#4C1D95">Table rows → flat text</text>
+  <text x="596" y="1775" text-anchor="middle" font-size="9.5" fill="#4C1D95">No zero-width cells</text>
+  <text x="596" y="1793" text-anchor="middle" font-size="9" fill="#7C3AED" font-style="italic">per-agent PDF downloads:</text>
+  <text x="596" y="1809" text-anchor="middle" font-size="9" fill="#7C3AED" font-style="italic">Research · Strategy</text>
+  <text x="596" y="1825" text-anchor="middle" font-size="9" fill="#7C3AED" font-style="italic">Content · Brand Alignment</text>
+
+  <!-- O4: Cost panel -->
+  <rect x="718" y="1664" width="200" height="168" rx="9"
+        fill="#fff" stroke="#C5B4EC" stroke-width="1.8" filter="url(#shadow-sm)"/>
+  <text x="818" y="1683" text-anchor="middle" font-size="11" font-weight="800" fill="#5B21B6">💰 Sidebar Cost Panel</text>
+  <text x="818" y="1700" text-anchor="middle" font-size="10" fill="#6D28D9">_track_tokens() helper</text>
+  <text x="818" y="1715" text-anchor="middle" font-size="10" fill="#6D28D9">_TrackingClient proxy</text>
+  <text x="818" y="1730" text-anchor="middle" font-size="10" fill="#4C1D95">Accumulates per session:</text>
+  <text x="818" y="1745" text-anchor="middle" font-size="9.5" fill="#4C1D95">Prompt tokens</text>
+  <text x="818" y="1760" text-anchor="middle" font-size="9.5" fill="#4C1D95">Completion tokens</text>
+  <text x="818" y="1775" text-anchor="middle" font-size="9.5" fill="#4C1D95">Total tokens</text>
+  <text x="818" y="1790" text-anchor="middle" font-size="9.5" fill="#4C1D95">Est. cost in USD</text>
+  <text x="818" y="1808" text-anchor="middle" font-size="9" fill="#7C3AED" font-style="italic">per-call breakdown</text>
+  <text x="818" y="1824" text-anchor="middle" font-size="9" fill="#7C3AED" font-style="italic">$0.15/1M prompt tok</text>
+
+  <!-- ══════════════════════════════════════════════════════════
+       END NODE
+  ══════════════════════════════════════════════════════════ -->
+  <line x1="482" y1="1848" x2="482" y2="1888" stroke="#6B7280" stroke-width="2" marker-end="url(#arr)"/>
+
+  <ellipse cx="482" cy="1924" rx="224" ry="40"
+           fill="url(#g-purple)" stroke="#4C1D95" stroke-width="2.5" filter="url(#shadow-sm)"/>
+  <text x="482" y="1918" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">
+    ✅  Pipeline Complete
+  </text>
+  <text x="482" y="1937" text-anchor="middle" font-size="11" fill="#DDD6FE">
+    PDF Ready  ·  All 4 Agents Traced in LangSmith  ·  ChromaDB Persisted
+  </text>
+
+  <!-- ══════════════════════════════════════════════════════════
+       LEGEND
+  ══════════════════════════════════════════════════════════ -->
+  <rect x="32" y="1984" width="900" height="204" rx="12"
+        fill="#fff" stroke="#E1DBF4" stroke-width="1.5"/>
+  <text x="482" y="2010" text-anchor="middle" font-size="13" font-weight="700" fill="#334155">
+    DIAGRAM LEGEND  —  MarketMind AI v3 · LangChain Dependency Injection Refactor
+  </text>
+  <line x1="44" y1="2018" x2="920" y2="2018" stroke="#E1DBF4" stroke-width="1.2"/>
+
+  <!-- Row 1 -->
+  <rect x="56"  y="2032" width="80" height="22" rx="5" fill="#C5B4EC" stroke="#7B5EA7" stroke-width="1.5"/>
+  <text x="96"  y="2047" text-anchor="middle" font-size="10" fill="#2D2249" font-weight="700">Lavender</text>
+  <text x="146" y="2047" font-size="11" fill="#334155">LangChain-traced LLM call (self.llm.invoke)</text>
+
+  <rect x="376" y="2032" width="80" height="22" rx="5" fill="#E5A4CB" stroke="#C4608A" stroke-width="1.5"/>
+  <text x="416" y="2047" text-anchor="middle" font-size="10" fill="#831843" font-weight="700">Pink</text>
+  <text x="466" y="2047" font-size="11" fill="#334155">Shared ChatOpenAI instance (app.py DI)</text>
+
+  <rect x="696" y="2032" width="80" height="22" rx="5" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/>
+  <text x="736" y="2047" text-anchor="middle" font-size="10" fill="#78350F" font-weight="700">Amber</text>
+  <text x="786" y="2047" font-size="11" fill="#334155">Raw OpenAI SDK (embeddings, not traced)</text>
+
+  <!-- Row 2 -->
+  <rect x="56"  y="2062" width="80" height="22" rx="5" fill="url(#g-blue)" stroke="#2563EB" stroke-width="1.5"/>
+  <text x="96"  y="2077" text-anchor="middle" font-size="10" fill="#1E3A8A" font-weight="700">Blue</text>
+  <text x="146" y="2077" font-size="11" fill="#334155">ChromaDB vector store</text>
+
+  <rect x="376" y="2062" width="80" height="22" rx="5" fill="url(#g-green)" stroke="#15803D" stroke-width="1.5"/>
+  <text x="416" y="2077" text-anchor="middle" font-size="10" fill="#14532D" font-weight="700">Green</text>
+  <text x="466" y="2077" font-size="11" fill="#334155">Strategy / Brand Alignment Agent stages</text>
+
+  <rect x="696" y="2062" width="80" height="22" rx="5" fill="url(#g-slate)" stroke="#94A3B8" stroke-width="1.5"/>
+  <text x="736" y="2077" text-anchor="middle" font-size="10" fill="#334155" font-weight="700">Slate</text>
+  <text x="786" y="2077" font-size="11" fill="#334155">Pure Python — no LLM, no LangSmith span</text>
+
+  <!-- Row 3 — arrow types -->
+  <line x1="56"  y1="2106" x2="134" y2="2106" stroke="#6B7280" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="146" y="2111" font-size="11" fill="#334155">Pipeline data flow (solid)</text>
+
+  <line x1="376" y1="2106" x2="454" y2="2106" stroke="#2563EB" stroke-width="2"
+        stroke-dasharray="6,3" marker-end="url(#arr-blue)"/>
+  <text x="466" y="2111" font-size="11" fill="#334155">ChromaDB RAG retrieval / write (dashed blue)</text>
+
+  <line x1="696" y1="2106" x2="774" y2="2106" stroke="#7C3AED" stroke-width="2"
+        stroke-dasharray="5,3" marker-end="url(#arr-purple)"/>
+  <text x="786" y="2111" font-size="11" fill="#334155">LangSmith auto-trace emission (dashed purple)</text>
+
+  <!-- ══════════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════════ -->
+  <text x="630" y="2205" text-anchor="middle" font-size="11" fill="#94A3B8">
+    MarketMind AI  ·  Saudi Arabia GTM Intelligence Platform  ·  Architecture v3
+    — ChatOpenAI Dependency Injection  ·  LangSmith Full Observability
+  </text>
+  <text x="630" y="2222" text-anchor="middle" font-size="10.5" fill="#94A3B8">
+    GPT-4o-mini via ChatOpenAI (inference)  ·  text-embedding-3-small via OpenAI SDK (embeddings)
+    ·  ChromaDB (persistence)  ·  Streamlit (UI)
+  </text>
+  <text x="630" y="2238" text-anchor="middle" font-size="10" fill="#94A3B8">
+    self.llm.invoke()  ·  self.llm.with_structured_output().invoke()  ·  LangSmith auto-traces all ChatOpenAI calls
+  </text>
+
+  <!-- ══════════════════════════════════════════════════════════
+       LLM DI INJECTION ARROWS (from _get_clients to each stage)
+  ══════════════════════════════════════════════════════════ -->
+  <!-- To Stage 1 -->
+  <path d="M720,248 L720,420 L482,420 L482,430" fill="none"
+        stroke="#7C3AED" stroke-width="1.5" stroke-dasharray="6,3"
+        marker-end="url(#arr-purple)" opacity="0.6"/>
+  <text x="610" y="415" text-anchor="middle" font-size="9" fill="#7C3AED" font-style="italic">llm=llm</text>
+
+  <!-- To Stage 2 -->
+  <path d="M722,240 L722,680 L400,680 L400,692" fill="none"
+        stroke="#7C3AED" stroke-width="1.5" stroke-dasharray="6,3"
+        marker-end="url(#arr-purple)" opacity="0.5"/>
+
+  <!-- To Stage 3 -->
+  <path d="M724,232 L724,940 L320,940 L320,956" fill="none"
+        stroke="#7C3AED" stroke-width="1.5" stroke-dasharray="6,3"
+        marker-end="url(#arr-purple)" opacity="0.4"/>
+
+  <!-- To Stage 4 -->
+  <path d="M726,224 L726,1300 L240,1300 L240,1314" fill="none"
+        stroke="#7C3AED" stroke-width="1.5" stroke-dasharray="6,3"
+        marker-end="url(#arr-purple)" opacity="0.35"/>
+
+  <!-- Label for DI arrows -->
+  <text x="730" y="800" font-size="9.5" fill="#7C3AED" font-style="italic" transform="rotate(90,730,800)">
+    llm=llm injected into all 4 agents
+  </text>
+
+</svg>
